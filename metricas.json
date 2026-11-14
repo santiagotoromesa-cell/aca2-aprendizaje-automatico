@@ -1,0 +1,111 @@
+{
+  "comparacion": [
+    {
+      "modelo": "Referencia: repetir el último día",
+      "MAE": 321.86181489345836,
+      "RMSE": 712.0852896940507,
+      "R2": -1.658271373230967
+    },
+    {
+      "modelo": "Referencia: media móvil de 7 días",
+      "MAE": 220.73657782823605,
+      "RMSE": 396.17188393325927,
+      "R2": 0.17718426657422293
+    },
+    {
+      "modelo": "Red densa (MLP profundo)",
+      "MAE": 215.30939317531949,
+      "RMSE": 573.1181732891376,
+      "R2": -0.72196232769722,
+      "épocas": 14,
+      "parámetros": 46913
+    },
+    {
+      "modelo": "LSTM apilada",
+      "MAE": 189.45720589946,
+      "RMSE": 371.8741931364129,
+      "R2": 0.27501776019750923,
+      "épocas": 13,
+      "parámetros": 36353
+    },
+    {
+      "modelo": "GRU apilada",
+      "MAE": 178.3777178843974,
+      "RMSE": 341.37002901720876,
+      "R2": 0.38907757895219774,
+      "épocas": 13,
+      "parámetros": 28225
+    },
+    {
+      "modelo": "Conv1D + LSTM (híbrida)",
+      "MAE": 190.06652666864437,
+      "RMSE": 375.941475902715,
+      "R2": 0.25907240443741253,
+      "épocas": 13,
+      "parámetros": 41697
+    },
+    {
+      "modelo": "GRU apilada + aumento de datos",
+      "MAE": 204.33004683189785,
+      "RMSE": 414.00646321665266,
+      "R2": 0.1014349381382671,
+      "épocas": 13,
+      "parámetros": 28225
+    },
+    {
+      "modelo": "GRU apilada + calibración",
+      "MAE": 170.93096388595066,
+      "RMSE": 311.42318366590587,
+      "R2": 0.4915629779299576,
+      "épocas": 13,
+      "parámetros": 28225
+    }
+  ],
+  "mae_validacion": {
+    "Referencia: repetir el último día": 305.1670217853835,
+    "Referencia: media móvil de 7 días": 193.62421082656144,
+    "Red densa (MLP profundo)": 153.32012819457347,
+    "LSTM apilada": 153.2931217281084,
+    "GRU apilada": 151.4062360097965,
+    "Conv1D + LSTM (híbrida)": 152.7064532208599,
+    "GRU apilada + aumento de datos": 156.3848270785418,
+    "GRU apilada + calibración": 151.86551120328082
+  },
+  "arquitectura_seleccionada": "GRU apilada + calibración",
+  "clasificacion": {
+    "exactitud": 0.6218181818181818,
+    "f1_macro": 0.4764786066713107,
+    "f1_ponderado": 0.6010788459241502,
+    "matriz_confusion": [
+      [
+        121,
+        538,
+        305
+      ],
+      [
+        5,
+        892,
+        806
+      ],
+      [
+        15,
+        827,
+        3091
+      ]
+    ]
+  },
+  "error_agregado_pct": 16.508574199385034,
+  "muestras": {
+    "entrenamiento": 52000,
+    "validacion": 9400,
+    "prueba": 6600,
+    "entrenamiento_con_aumento": 156000
+  },
+  "canales_entrada": 10,
+  "resumen_datos": {
+    "registros_crudos": 541909,
+    "registros_limpios": 527789,
+    "productos_modelados": 200,
+    "dias": 374
+  }
+}
