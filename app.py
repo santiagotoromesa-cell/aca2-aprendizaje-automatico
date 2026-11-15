@@ -140,7 +140,7 @@ with izq:
         x="fecha:T", y="unidades:Q",
         tooltip=[alt.Tooltip("fecha:T", title="Fecha", format="%d/%m/%Y"),
                  alt.Tooltip("unidades:Q", title="Promedio diario pronosticado", format=".0f")])
-    st.altair_chart((base + capa_pron).properties(height=300), use_container_width=True)
+    st.altair_chart((base + capa_pron).properties(height=300), width="stretch")
     st.caption("En azul, la venta diaria observada de los últimos 90 días. En naranja, "
                "el pronóstico de la red repartido en promedio sobre los días siguientes.")
 
@@ -156,7 +156,7 @@ with der:
             alt.value(COLOR_PRON), alt.value("#b8c4cf")),
         tooltip=["modelo", "MAE"]
     ).properties(height=260)
-    st.altair_chart(graf, use_container_width=True)
+    st.altair_chart(graf, width="stretch")
     cl = metricas["clasificacion"]
     st.markdown(
         f"Al traducir el pronóstico a un nivel de demanda, el modelo acierta en "
@@ -179,7 +179,7 @@ linea = alt.Chart(bt).mark_line(point=True, strokeWidth=2.5).encode(
     tooltip=[alt.Tooltip("fecha:T", format="%d/%m/%Y"), "serie:N",
              alt.Tooltip("unidades:Q", format=".0f")]
 ).properties(height=280)
-st.altair_chart(linea, use_container_width=True)
+st.altair_chart(linea, width="stretch")
 demo = cfg.get("producto_demo", {})
 st.caption(
     f"Producto representativo {demo.get('codigo', '')} "
